@@ -20,6 +20,17 @@ int Signal_A()
   Serial.print("\t");
 }
 
+int mode_2()
+{
+  digitalWrite(signal_A, HIGH);
+  delay(a);
+  digitalWrite(signal_A, LOW);
+  delay(b);
+  a -= 50;
+  Serial.print(a);
+  Serial.print("\t"); 
+}
+
 void setup() {
   pinMode(signal_A, OUTPUT);
   pinMode(signal_B, OUTPUT);
@@ -34,15 +45,27 @@ void loop() {
     digitalWrite(signal_A, LOW);
     digitalWrite(signal_B, LOW);
   }
-  while (digitalRead(button_1)==LOW)
+  while (digitalRead(button_1)==LOW && digitalRead(button_2)==LOW)
   {
-   a =100;
-   for (int c = 12;  c >= 0;    c--)
-   {
-    Signal_A();
-    Serial.print(c);
-    Serial.print("\t"); 
-   }
+    a =100;
+    for (int c = 12;  c >= 0;    c--)
+    {
+      Signal_A();
+      Serial.print(c);
+      Serial.print("\t"); 
+    }
+    delay(d);
+  }
+  while (digitalRead(button_2)==HIGH)
+  {
+    Signal_B();
+    a =750;
+    for (int c = 12;  c >= 0;    c--)
+    {
+      mode_2();
+      Serial.print(c);
+      Serial.print("\t"); 
+    }
     delay(d);
   }
 }
