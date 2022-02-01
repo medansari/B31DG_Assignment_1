@@ -20,6 +20,13 @@ int Signal_A()
   Serial.print("\t");
 }
 
+int Signal_B()
+{
+  digitalWrite(signal_B, HIGH);
+  delay(50);
+  digitalWrite(signal_B, LOW);
+}
+
 int mode_2()
 {
   digitalWrite(signal_A, HIGH);
@@ -48,6 +55,7 @@ void loop() {
   while (digitalRead(button_1)==LOW && digitalRead(button_2)==LOW)
   {
     a =100;
+    Signal_B();
     for (int c = 12;  c >= 0;    c--)
     {
       Signal_A();
