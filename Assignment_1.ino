@@ -4,7 +4,8 @@
 #define signal_B 21
 
 #define b 1300
-#define c 12
+
+#define d 500
 
 static int a = 100;
 
@@ -15,6 +16,8 @@ int Signal_A()
   digitalWrite(signal_A, LOW);
   delay(b);
   a += 50;
+  Serial.print(a);
+  Serial.print("\t");
 }
 
 void setup() {
@@ -22,15 +25,23 @@ void setup() {
   pinMode(signal_B, OUTPUT);
   pinMode(button_1, INPUT);
   pinMode(button_2, INPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
+  while (digitalRead(button_1)== HIGH)
+  {
+    digitalWrite(signal_A, LOW);
+    digitalWrite(signal_B, LOW);
+  }
   while (digitalRead(button_1)==LOW)
   {
    a =100;
    for (int c = 12;  c >= 0;    c--)
    {
-     Signal_A();
+    Signal_A();
+    Serial.print(c);
+    Serial.print("\t"); 
    }
     delay(d);
   }
