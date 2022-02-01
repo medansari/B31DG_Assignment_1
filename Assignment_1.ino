@@ -25,8 +25,13 @@ void setup() {
 }
 
 void loop() {
-for (int c = 12;  c >= 0;    c--)
+  while (digitalRead(button_1)==LOW)
+  {
+   a =100;
+   for (int c = 12;  c >= 0;    c--)
    {
-    Signal_A();
+     Signal_A();
    }
+    delay(d);
+  }
 }
