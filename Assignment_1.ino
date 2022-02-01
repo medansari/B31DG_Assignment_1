@@ -12,9 +12,9 @@ static int a = 100;
 int Signal_A()
 {
   digitalWrite(signal_A, HIGH);
-  delay(a);
+  delayMicroseconds(a);
   digitalWrite(signal_A, LOW);
-  delay(b);
+  delayMicroseconds(b);
   a += 50;
   Serial.print(a);
   Serial.print("\t");
@@ -23,16 +23,16 @@ int Signal_A()
 int Signal_B()
 {
   digitalWrite(signal_B, HIGH);
-  delay(50);
+  delayMicroseconds(50);
   digitalWrite(signal_B, LOW);
 }
 
 int mode_2()
 {
   digitalWrite(signal_A, HIGH);
-  delay(a);
+  delayMicroseconds(a);
   digitalWrite(signal_A, LOW);
-  delay(b);
+  delayMicroseconds(b);
   a -= 50;
   Serial.print(a);
   Serial.print("\t"); 
@@ -62,7 +62,7 @@ void loop() {
       Serial.print(c);
       Serial.print("\t"); 
     }
-    delay(d);
+    delayMicroseconds(d);
   }
   while (digitalRead(button_2)==HIGH)
   {
@@ -74,6 +74,6 @@ void loop() {
       Serial.print(c);
       Serial.print("\t"); 
     }
-    delay(d);
+    delayMicroseconds(d);
   }
 }
