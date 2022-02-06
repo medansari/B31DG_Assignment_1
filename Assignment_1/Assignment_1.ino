@@ -53,7 +53,7 @@ void loop() {
     a =100;                   //set a = 100
     Signal_B();               // call signal B function
     //loop from the highest value to the lowest:
-    for (int c = 12;  c >= 0;    c--)
+    for (int c = 11;  c >= 0;    c--)
     {
       Signal_A();           //call signal A function
     }
@@ -63,9 +63,9 @@ void loop() {
   while (digitalRead(button_2)==HIGH)
   {
     Signal_B();    // call signal B function
-    a =750;        //set a = 750
+    a =700;        //set a = 70
     //loop from the highest value to the lowest:
-    for (int c = 12;  c >= 0;    c--)
+    for (int c = 11;  c >= 0;    c--)
     {
       mode_2();              //call mode 2 function
     }
